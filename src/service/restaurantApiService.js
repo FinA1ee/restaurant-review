@@ -19,9 +19,3 @@ class RestaurantApiService {
 }
 
 export default new RestaurantApiService();
-
-// const getRestaurants = (method, page) => {
-//   console.log(query);
-
-//   if (query.name) axios.get(`http://localhost:5000/api/v1/restaurants?`);
-// };

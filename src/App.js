@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route, Link, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RestaurantContextProvider from "./context/RestaurantContext";
 import Search from "./components/Search";
@@ -19,9 +19,9 @@ function App() {
     <RestaurantContextProvider>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <a href="/home" className="navbar-brand">
-            Restaurant Review
-          </a>
+          <Link to={"/home"} className="navbar-brand">
+            Restaurant Reviews
+          </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
               <Link to={"/restaurant-search"} className="nav-link">
@@ -42,7 +42,10 @@ function App() {
         </nav>
         <div className="container mt-3">
           <Switch>
-            <Route exact path={["/", "/home"]} component={HomePage} />
+            <Route exact path="/">
+              <Redirect to="/home" />
+            </Route>
+            <Route path="/home" component={HomePage} />
             <Route path="/restaurant-search" component={Search} />
             <Route
               path="/restaurant-review/:id"

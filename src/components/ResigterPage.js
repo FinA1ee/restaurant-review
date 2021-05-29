@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 const RequiredFields = ["name", "password", "email"];
 const checkAllFieldExist = (userInfo, passValid, passMatch) => {
-  console.log("Checking: ", userInfo, passValid, passMatch);
   if (!passValid || !passMatch || !userInfo) return false;
 
   for (let field of RequiredFields) {
@@ -30,7 +29,6 @@ function RegisterPage(props) {
 
   const checkValidPassword = (e) => {
     const password = e.target.value;
-    console.log("Checking Valid Password: ", password);
     setPassValid(PasswordPattern.test(password));
   };
 

@@ -10,8 +10,6 @@ function SelectBar(props) {
   const { placeholder, handleEnterComplete } = props;
 
   const onSelectChange = (e) => {
-    console.log(e.target.value);
-
     setSelectItem(e.target.value);
   };
 
