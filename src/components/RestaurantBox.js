@@ -22,7 +22,7 @@ function RestaurantBox(props) {
           </p>
           <div className="row">
             <Link
-              to={"/restaurant-review/" + _id}
+              to={"/reviews/" + _id}
               className="btn btn-primary col-lg-5 mx-1 mb-1"
             >
               View Reviews

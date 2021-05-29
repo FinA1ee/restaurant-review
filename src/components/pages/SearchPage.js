@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Container from "./Container";
-import SearchBar from "./SearchBar";
-import SelectBar from "./SelectBar";
+import Container from "../Container";
+import SearchBar from "../SearchBar";
+import SelectBar from "../SelectBar";
 
-function Search() {
+function SearchPage() {
   const [filter, setFilter] = useState({
     restaurantsPerPage: 20,
     page: 0,
@@ -70,4 +70,4 @@ function Search() {
   );
 }
 
-export default Search;
+export default SearchPage;

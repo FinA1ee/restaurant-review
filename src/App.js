@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Switch, Route, Link, Redirect } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import RestaurantContextProvider from "./context/RestaurantContext";
-import Search from "./components/Search";
 import RestaurantReviewPage from "./components/RestaurantReviewPage";
-import LoginPage from "./components/LoginPage";
-import RegisterPage from "./components/ResigterPage";
-import HomePage from "./components/HomePage";
+import LoginPage from "./components/pages/LoginPage";
+import RegisterPage from "./components/pages/ResigterPage";
+import HomePage from "./components/pages/HomePage";
+import Search from "./components/pages/SearchPage";
+import SearchPage from "./components/pages/SearchPage";
 
 function App() {
   const [user, setUser] = useState({});
@@ -19,12 +20,12 @@ function App() {
     <RestaurantContextProvider>
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to={"/home"} className="navbar-brand">
-            Restaurant Reviews
+          <Link to={"/home"} className="navbar-brand ms-3">
+            Restaurant Review
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
-              <Link to={"/restaurant-search"} className="nav-link">
+              <Link to={"/search"} className="nav-link">
                 Restaurants
               </Link>
             </li>
@@ -46,11 +47,8 @@ function App() {
               <Redirect to="/home" />
             </Route>
             <Route path="/home" component={HomePage} />
-            <Route path="/restaurant-search" component={Search} />
-            <Route
-              path="/restaurant-review/:id"
-              component={RestaurantReviewPage}
-            />
+            <Route path="/search" component={SearchPage} />
+            <Route path="/reviews/:id" component={RestaurantReviewPage} />
             <Route
               path="/login"
               render={(props) => <LoginPage login={handleLogin} />}
